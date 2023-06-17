@@ -1,0 +1,56 @@
+:root {
+	// Adaptive
+	--index: calc(1vw + 1vh);
+
+	// Colors
+	--main-bg: #010101;
+	--main-text: #ebebce;
+
+	// Sizes
+	--container-width: 1239px;
+	--container-padding: 10px;
+	--header-height: 135px;
+	@media (max-width: 1440px) {
+		--header-height: 75px;
+	}
+
+	// Fonts
+	--main-font: "raleway-f", sans-serif;
+}
+
+// PERCENTAGE LINE-HEIGHT
+@function lh($line-height, $font-size) {
+	@return calc($line-height / $font-size * 100%);
+}
+
+// FONT-FACE MIXIN
+@mixin font-face($font-family, $file-path, $weight: 400, $style: normal) {
+	@font-face {
+		font-family: $font-family;
+		font-weight: $weight;
+		font-style: $style;
+		font-display: swap;
+		src: url("#{$file-path}.eot");
+		src: url("#{$file-path}.eot?#iefix") format("embedded-opentype"), url("#{$file-path}.woff2") format("woff2"),
+			url("#{$file-path}.woff") format("woff"), url("#{$file-path}.ttf") format("truetype");
+	}
+}
+
+// FROM PX TO REM
+@function rem($px) {
+	@return calc($px / 16) + rem;
+}
+// FROM PX TO EM
+@function em($px) {
+	@return calc($px / 16) + em;
+}
+
+@mixin list-reset {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+@mixin reset {
+	padding: 0;
+	margin: 0;
+}
